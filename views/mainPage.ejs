@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>doctor's Appointments</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CRoboto:300,400,500" media="all">
+		<script src="/js/jquery-3.5.1.min.js"></script>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<Script src="/js/bootstrap.bundle.min.js"></SCript>
+		<script src="/js/moment-whit-locales.min.js"></script>
+		<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+		<script src="/js/toastr.js"></script>
+		<link href="/css/toastr.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="/css/datatables.min.css">
+		<script src="/js/datatables.min.js"></script>
+		<link rel="stylesheet" href="/css/style.css">
+		<script>
+			$(document).ready( function () {
+    		$('#myTable').DataTable();
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col offset-md-10">
+					<button class="btn "><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> logout</a></br></button>
+				</div>
+				<div class="col">
+					<h1>Doctor's Appointments</h1></br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<table id="myTable" class="table table-sm table-striped table-hover table-bordered ">
+						<thead>
+							<tr role="row" class="odd">
+								<th>Date</th>
+								<th>Time</th>
+								<th>Patient Name</th>
+								<th>complain</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for(appos of appo) { %>
+								<tr role="row" class="odd">
+									<td><%= appos.date %></td>
+									<td><%= appos.time %></td>
+									<td><%= appos.UserId.user %></td>
+									<td><%= appos.complain %></td>
+								</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col offset-md-8">
+				</br>
+				</br>
+				</br>
+					<a href="/new_Appointments"><i class="fa fa-user-md" aria-hidden="true"></i> click to add new appointments</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

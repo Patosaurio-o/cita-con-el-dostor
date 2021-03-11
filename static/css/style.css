@@ -1,0 +1,21 @@
+.fondo {
+  background-image: url(../image/fondo-login.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.whiteFont {
+  color: white;
+}
+
+a:link, a:visited, a:active {
+  text-decoration:none;
+}
+
+.titleLogin {
+  display: inline;
+}
+
+.rojo {
+  background-color: blue;
+}

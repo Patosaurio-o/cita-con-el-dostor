@@ -39,7 +39,10 @@ router.get('/', checkLogin, async (req, res) => {
   const appo = await Appointment.findAll(
     {include: [User]}
   );
-  res.render('mainPage', {user, appo});
+  res.render('mainPage', {
+    user:user,
+    appo:appo
+  });
 });
 
 router.get('/:id', (req,res)=>{

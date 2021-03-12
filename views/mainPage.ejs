@@ -44,13 +44,15 @@
 							</tr>
 						</thead>
 						<tbody>
-							<% for(appos of appo) { %>
-								<tr role="row" class="odd">
-									<td><%= appos.date %></td>
-									<td><%= appos.time %></td>
-									<td><%= appos.UserId.user %></td>
-									<td><%= appos.complain %></td>
-								</tr>
+							<% for(users of user) { %>
+								<% for(appos of users.Appointments) { %>
+									<tr role="row" class="odd">
+										<td><%= appos.date %></td>
+										<td><%= appos.time %></td>
+										<td><%= users.name %></td>
+										<td><%= appos.complain %></td>
+									</tr>
+								<% } %>
 							<% } %>
 						</tbody>
 					</table>

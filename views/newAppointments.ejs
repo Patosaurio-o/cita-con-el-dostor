@@ -16,33 +16,35 @@
 		<link rel="stylesheet" href="/css/style.css">
     <title>new Appointments</title>
   </head>
-  <body>
+  <body class="fondo2">
     <div class="container">
       <div class="row">
         <h1>New Appointments</h1>
         </br></br></br></br>
-          <div class="col-3 offset-md-2">
-            <form id="form-login" action="/addNewAppo" method="POST">
-              <div class="input-group mb-3">
-                <label for="date">Date: </label>
-                <input type="date" name="date" id="date">
+        <div class="col-8 offset-md-2">
+          <form id="form-login" action="/addNewAppo" method="POST">
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="date">Date: </label>
+              <div class="col-sm-3">
+                <input class="form-control" type="date" name="date" id="date" required>
               </div>
-              <div class="input-group mb-3">
-                <label for="time">Time: </label>
-                <input type="time" name="time" id="time">
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="time">Time: </label>
+              <div class="col-sm-3">
+                <input class="form-control" type="time" name="time" id="time" required>
               </div>
-              <div class="input-group mb-3">
-                <label for="complain">Complain: </label>
-                <textarea name="complain" id="complain" cols="100" rows="10"></textarea>
+            </div>
+            <div class="row mb-3 form-group">
+              <label class="col-sm-2 col-form-label" for="complain">Complain: </label>
+              <div class="col-8">
+                <textarea class="form-control" name="complain" id="complain" cols="90" rows="10" required></textarea>
               </div>
-              <button type="submit">asdasd</button>
-            </form>
-          </div>
-        <div class="col rojo">
-          ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+            </div>
+            <button class="btn btn-primary col-sm-2" type="submit">send</button>
+          </form>
         </div>
       </div>
     </div>
-
   </body>
 </html>

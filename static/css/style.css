@@ -4,6 +4,19 @@
 	background-repeat: no-repeat;
 }
 
+.fondo2 {
+  background-image: url(../image/fondo-agregar-citas.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.fondo3 {
+  background-image: url(../image/fondo3.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+  opacity: initial;
+}
+
 .whiteFont {
   color: white;
 }

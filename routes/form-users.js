@@ -51,7 +51,6 @@ router.post('/login', async (req, res) => {
     req.flash('errors', 'Usuario inexistente o contraseña incorrecta');
     return res.redirect('/login');
   }
-
   // Finalmente redirigimos al home
   req.session.user = user;
   res.redirect('/')

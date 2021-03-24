@@ -10,7 +10,7 @@
 		<script src="/js/moment-whit-locales.min.js"></script>
 		<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
 		<script src="/js/toastr.js"></script>
-		<link href="/css/toastr.css" rel="stylesheet"/>
+		<link href="/css/toastr.css" rel="stylesheet">
 		<link rel="stylesheet" href="/css/datatables.min.css">
 		<script src="/js/datatables.min.js"></script>
 		<link rel="stylesheet" href="/css/style.css">
@@ -46,5 +46,10 @@
         </div>
       </div>
     </div>
+  <script>
+    <% for(error of errors) { %>
+        toastr.error('<%=errors%>'); 
+    <% } %>
+  </script>
   </body>
 </html>

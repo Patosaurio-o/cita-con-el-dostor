@@ -31,24 +31,14 @@ const Appointment = sql.define('Appointment', {
   date: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate: {
-      isUUID: 3,
-      isAfter: "2021-03-09",
-    }
   },
   time: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate: {
-      len: [8,17],
-    }
   },
   complain: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate: {
-      min: 10,
-    }
   }
 });
 

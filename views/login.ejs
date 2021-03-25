@@ -38,9 +38,9 @@
       "progressBar": true,
     }        
     $(document).ready(function(){
-      <% for(error of errors) { %>
-          toastr.error('<%=errors%>'); 
-      <% } %> 
+      <%for(error of errors){%>
+        toastr.error('<%=error%>')
+      <%}%> 
       $('#form-register').on('submit', function(){
         const pass1 = $('#password').val();
         const pass2 = $('#password_confirm').val();

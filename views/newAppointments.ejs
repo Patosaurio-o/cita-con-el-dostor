@@ -47,9 +47,15 @@
       </div>
     </div>
   <script>
-    <% for(error of errors) { %>
-        toastr.error('<%=errors%>'); 
-    <% } %>
+     toastr.options = {
+      "closeButton": true,
+      "progressBar": true,
+    }        
+    $(document).ready(function(){
+      <%for(error of errors){%>
+        toastr.error('<%=error%>') 
+      <%}%>
+    });
   </script>
   </body>
 </html>

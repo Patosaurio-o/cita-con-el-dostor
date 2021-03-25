@@ -13,11 +13,27 @@ const User = sql.define('User', {
   },
   email: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      isEmail: {
+        args: true,
+        msg: "ingrese un email valido"
+      } 
+    }
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      min: {
+        args:6,
+        msg: "ingrese una contraseña entre 6 y 16 caracteres"
+      },
+      max: {
+        args:16,
+        msg: "ingrese una contraseña entre 6 y 16 caracteres"
+      }
+    }
   }
 });
 
@@ -26,8 +42,7 @@ const Appointment = sql.define('Appointment', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
-  },
-  
+  },  
   date: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -35,10 +50,26 @@ const Appointment = sql.define('Appointment', {
   time: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      min: {
+        args:8,
+        msg: "el horario de atencion es entre las 08:00 y las 17:00 Hrs"
+      },
+      max: {
+        args:16,
+        msg: "el horario de atencion es entre las 08:00 y las 17:00 Hrs"
+      }
+    }
   },
   complain: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      len: {
+        args: [10, 255],
+        msg: "tiene que tener un minimo de 10 caracteres"
+      }
+    }
   }
 });
 

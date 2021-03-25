@@ -27,8 +27,7 @@ router.get('/', checkLogin, async (req, res) => {
     {include: [User]}
   );
   res.render('mainPage',{
-    user:user,
-    appo:appo
+    user, appo
   });
 });
 
@@ -36,6 +35,17 @@ router.post('/addNewAppo', checkLogin, async (req, res) => {
   if(req.body.date==''||req.body.time==''||req.body.complain==''){
     return res.send('fail');
   }
+  let dateCount = await Appointment.findAndCountAll({
+    where:{
+      date: req.body.date
+    }
+  })
+  console.log(`la suma de los datos es ${dateCount.count}  la fecha es ${req.body.date}`)
+  if(dateCount.count >= 3){
+    req.flash('errors', 'ya esta el numero maximo de citas para ese dia');
+    return res.redirect('/new_Appointments');
+  }
+  dateCount = 0;
   try {
     const appo = await Appointment.create({
       date: req.body.date,
@@ -47,7 +57,7 @@ router.post('/addNewAppo', checkLogin, async (req, res) => {
     for (var key in err.errors) {
       req.flash('errors', err.errors[key].message);
     }
-    return res.redirect('/');
+    return res.redirect('/new_Appointments');
   };
   res.redirect('/');
 });

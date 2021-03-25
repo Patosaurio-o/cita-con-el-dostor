@@ -25,9 +25,9 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="col offset-md-10">
-					<span><%= user.name %></span>
-					<button class="btn "><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> logout</a></br></button>
+				<div class="col offset-md-9 ">
+					<span>Welcome <%= users.name %></span>
+					<button class="btn spaninicio"><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>logout</a></button>
 				</div>
 				<div class="col">
 					<h1>Doctor's Appointments</h1></br>
@@ -45,14 +45,23 @@
 							</tr>
 						</thead>
 						<tbody>
-							<% for(users of user) { %>
-								<% for(appos of users.Appointments) { %>
-									<tr role="row" class="odd">
-										<td><%= appos.date %></td>
-										<td><%= appos.time %></td>
-										<td><%= users.name %></td>
-										<td><%= appos.complain %></td>
-									</tr>
+							<% for(let users of user) { %>
+								<% for(let appos of users.Appointments) { %>
+									<% if(appos.UserId == users.id) { %>
+										<tr role="row" class="odd">
+											<td><%= appos.date %></td>
+											<td><%= appos.time %></td>
+											<td><%= users.name %></td>
+											<td><%= appos.complain %> <a href="#">Eliminar</a></td>
+										</tr>	
+									<% } else { %>
+										<tr role="row" class="odd">
+											<td><%= appos.date %></td>
+											<td><%= appos.time %></td>
+											<td><%= users.name %></td>
+											<td><%= appos.complain%></td>
+										</tr>
+									<% } %>
 								<% } %>
 							<% } %>
 						</tbody>

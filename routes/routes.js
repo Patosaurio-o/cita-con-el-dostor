@@ -27,7 +27,8 @@ router.get('/', checkLogin, async (req, res) => {
     {include: [User]}
   );
   res.render('mainPage',{
-    user, appo
+    users:user, 
+    appo
   });
 });
 
@@ -67,6 +68,12 @@ router.get('/:id', (req,res)=>{
   if(id != undefined){
     res.render('error')
   }
+});
+
+router.get('/delete/:id' , async (req,res) => {
+  const delAppointment = await Appointment.findByPk(req.params.id);
+  await delAppointment.destroy();
+  res.redirect('/');
 });
 
 router.get('/error',(req, res) => {
